@@ -1,0 +1,47 @@
+.item-card {
+  width: 100%;
+  margin: 15px 0 15px 0;
+  display: flex;
+  padding-right: 30px;
+}
+.item-image {
+  width: 160px;
+  height: 100px;
+  margin-right: 4%;
+  border-radius: 15px;
+}
+.item-name {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 24px;
+  color: #334155;
+  margin: 0;
+  height: 45px;
+}
+.item-cuisine {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  margin: 0;
+  color: #64748b;
+}
+.item-star {
+  margin-right: 8px;
+  margin-top: 3px;
+  color: #ffcc00;
+}
+.item-rating-container {
+  display: flex;
+  align-items: center;
+}
+.item-rating-para {
+  margin: 0;
+}
+.nav-link {
+  width: 33%;
+  text-decoration: none;
+}
