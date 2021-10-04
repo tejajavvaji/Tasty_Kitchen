@@ -15,7 +15,6 @@ const Footer = () => (
       <FaInstagram className="footer-icon" />
       <FaTwitter className="footer-icon" />
       <AiFillFacebook className="footer-icon" />
-      <h1>Test</h1>
     </div>
   </footer>
 )

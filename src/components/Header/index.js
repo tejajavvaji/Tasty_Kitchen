@@ -13,6 +13,7 @@ class Header extends Component {
 
   checkPath = () => {
     const {match} = this.props
+    console.log(match)
     const {path} = match
     this.setState({activePage: path})
   }
@@ -38,10 +39,13 @@ class Header extends Component {
     console.log(activePage)
     if (activePage === '/') {
       homeClass = 'header-home-link active'
-      cartClass = 'header-home-link'
     } else {
       homeClass = 'header-home-link'
+    }
+    if (activePage === '/cart') {
       cartClass = 'header-home-link active'
+    } else {
+      cartClass = 'header-home-link'
     }
     return (
       <div className="header-main">

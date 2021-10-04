@@ -1,0 +1,20 @@
+.each-image-back {
+  background-image: url('../../Resources//EachRestaurant/EachRestaurant.jpg');
+  height: 35vh;
+
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+}
+.maxWidth {
+  width: 90vw;
+  max-width: var(--content-max-width);
+  display: flex;
+}
+.each-image-back-left {
+  width: 40%;
+}
+.each-image-back-right {
+  width: 60%;
+}

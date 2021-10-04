@@ -59,8 +59,8 @@ class Home extends Component {
       slidesToScroll: 1,
       autoplay: true,
       pauseOnHover: true,
-      //   vertical: true,
-      //   verticalSwiping: true,
+      vertical: true,
+      verticalSwiping: true,
     }
     return (
       <div className="carousel-container">
