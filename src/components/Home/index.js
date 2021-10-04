@@ -2,6 +2,7 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Slider from 'react-slick'
 import {MdSort} from 'react-icons/md'
+import {TiArrowSortedDown, TiTick} from 'react-icons/ti'
 import {AiOutlineCaretLeft, AiFillCaretRight} from 'react-icons/ai'
 
 import Header from '../Header/index'
@@ -10,7 +11,14 @@ import RestaurantsItem from '../RestaurantsItem/index'
 import './index.css'
 
 class Home extends Component {
-  state = {imagesData: [], activePage: 1, maxPage: '', restaurantsData: []}
+  state = {
+    imagesData: [],
+    activePage: 1,
+    maxPage: '',
+    restaurantsData: [],
+    sortBy: 'Highest',
+    showSort: false,
+  }
 
   componentDidMount() {
     this.getSliderImages()
@@ -32,10 +40,11 @@ class Home extends Component {
   }
 
   getRestaurantData = async () => {
+    const {sortBy} = this.state
     const {activePage} = this.state
     const token = Cookies.get('jwt_token')
     const offset = (activePage - 1) * 9
-    const apiUrl = `https://apis.ccbp.in/restaurants-list?offset=${offset}&limit=9`
+    const apiUrl = `https://apis.ccbp.in/restaurants-list?sort_by_rating=${sortBy}&offset=${offset}&limit=9`
     const options = {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -90,9 +99,38 @@ class Home extends Component {
     }
   }
 
-  render() {
-    const {imagesData, activePage, maxPage, restaurantsData} = this.state
+  updateShowSort = () => {
+    this.setState(prevState => ({showSort: !prevState.showSort}))
+  }
 
+  updateSortHighest = () => {
+    this.setState({sortBy: 'Highest', showSort: false}, this.getRestaurantData)
+  }
+
+  updateSortLowest = () => {
+    this.setState({sortBy: 'Lowest', showSort: false}, this.getRestaurantData)
+  }
+
+  render() {
+    const {
+      imagesData,
+      activePage,
+      maxPage,
+      restaurantsData,
+      sortBy,
+      showSort,
+    } = this.state
+    const sortClass = showSort
+      ? 'sort-details-container'
+      : 'sort-details-container hide'
+    const activeHClass =
+      sortBy === 'Highest'
+        ? 'sort-item-container sort-item-container-active'
+        : 'sort-item-container'
+    const activeLClass =
+      sortBy === 'Lowest'
+        ? 'sort-item-container sort-item-container-active'
+        : 'sort-item-container'
     return (
       <>
         <Header />
@@ -105,9 +143,36 @@ class Home extends Component {
                 Select your favorite restaurant special dish and make your day
                 happy.
               </p>
-              <div className="home-sort-container">
-                <MdSort className="home-sort-icon" />
-                <p>Sort by</p>
+
+              <div>
+                <button
+                  className="home-sort-container"
+                  onClick={this.updateShowSort}
+                  type="button"
+                >
+                  <MdSort className="home-sort-icon" />
+                  <p className="home-sort-para">
+                    Sort by {sortBy} &nbsp; <TiArrowSortedDown />
+                  </p>
+                </button>
+              </div>
+              <div className={sortClass}>
+                <button
+                  onClick={this.updateSortHighest}
+                  type="button"
+                  className={activeHClass}
+                >
+                  <p className="sort-item">Highest</p>
+                  {sortBy === 'Highest' ? <TiTick /> : null}
+                </button>
+                <button
+                  onClick={this.updateSortLowest}
+                  type="button"
+                  className={activeLClass}
+                >
+                  <p className="sort-item">Lowest</p>
+                  {sortBy === 'Lowest' ? <TiTick /> : null}
+                </button>
               </div>
             </div>
           </div>

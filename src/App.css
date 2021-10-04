@@ -1,7 +1,18 @@
 * {
   box-sizing: border-box;
 }
-
+::-webkit-scrollbar {
+  width: 0.6em;
+}
+::-webkit-scrollbar-track {
+  background-image: linear-gradient(#ffffff 99%, #0f172a);
+  /* border-left: 2px solid var(--website-clr); */
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--website-clr);
+  border-radius: 10px;
+  /* border-right: 3px solid #ffffff; */
+}
 body {
   margin: 0;
 
@@ -13,5 +24,5 @@ body {
 }
 :root {
   --website-clr: #f7931e;
-  --content-max-width: 1400px;
+  --content-max-width: 1200px;
 }

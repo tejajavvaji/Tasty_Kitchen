@@ -1,23 +1,20 @@
-.cart-main {
-  width: 99vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.cart-content {
-  max-width: var(--content-max-width);
+.not-found-container {
+  height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  min-height: 80vh;
+  text-align: center;
+  font-family: DM Sans;
 }
-.empty-cart-heading,
-.empty-cart-para {
-  margin: 8px 0;
+.not-found-heading,
+.not-found-para {
+  margin: 10px 0;
 }
-.redirect-btn {
+.not-found-para {
+  color: #475569;
+}
+.not-found-btn {
   margin-top: 15px;
   color: #ffffff;
   background-color: var(--website-clr);

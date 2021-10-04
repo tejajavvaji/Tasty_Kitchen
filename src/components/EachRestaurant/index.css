@@ -1,7 +1,9 @@
 .each-image-back {
-  background-image: url('../../Resources//EachRestaurant/EachRestaurant.jpg');
-  height: 35vh;
-
+  background-image: url('../../Resources//EachRestaurant/EachRestaurant\ \(2\).jpg');
+  background-size: cover;
+  height: 40vh;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
   background-position: center;
 
   display: flex;
@@ -14,7 +16,69 @@
 }
 .each-image-back-left {
   width: 40%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 .each-image-back-right {
   width: 60%;
+  margin-left: 20px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-family: DM Sans;
+}
+.restaurant_image {
+  height: 70%;
+  border-radius: 15px;
+}
+.restaurant-details-container {
+  display: flex;
+}
+.for-border {
+  border-right: 1px solid #e2e8f0;
+}
+.star-container {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  width: 100px;
+}
+.each-rating,
+.each-review,
+.each-cost,
+.each-cost-title {
+  margin: 0;
+}
+.each-cost-container {
+  margin-left: 20px;
+}
+.each-cost-title,
+.each-review {
+  margin-top: 5px;
+  color: #e2e8f0;
+  font-size: 12px;
+}
+.each-name,
+.each-cuisine,
+.each-location {
+  margin: 10px 0;
+}
+.each-food-item-con {
+  display: flex;
+  width: 99vw;
+  align-items: center;
+  justify-content: center;
+}
+.each-food-item-list {
+  max-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+
+  /* justify-content: center; */
+
+  margin-top: 35px;
 }
