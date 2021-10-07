@@ -16,7 +16,7 @@ class Home extends Component {
     activePage: 1,
     maxPage: '',
     restaurantsData: [],
-    sortBy: 'Highest',
+    sortBy: 'Lowest',
     showSort: false,
   }
 
@@ -76,7 +76,7 @@ class Home extends Component {
         <Slider {...settings}>
           {imagesData.map(eachImage => {
             const imageUrl = eachImage.image_url
-            return <img src={imageUrl} alt="" />
+            return <img src={imageUrl} alt="offer" />
           })}
         </Slider>
       </div>
@@ -140,8 +140,8 @@ class Home extends Component {
             <h1 className="home-heading">Popular Restaurants</h1>
             <div className="home-para-container">
               <p>
-                Select your favorite restaurant special dish and make your day
-                happy.
+                Select Your favourite restaurant special dish and make your day
+                happy...
               </p>
 
               <div>
@@ -152,7 +152,7 @@ class Home extends Component {
                 >
                   <MdSort className="home-sort-icon" />
                   <p className="home-sort-para">
-                    Sort by {sortBy} &nbsp; <TiArrowSortedDown />
+                    Sort By {sortBy} &nbsp; <TiArrowSortedDown />
                   </p>
                 </button>
               </div>
@@ -178,7 +178,7 @@ class Home extends Component {
           </div>
           <ul className="home-restaurants-container">
             {restaurantsData.map(eachRestaurant => (
-              <RestaurantsItem data={eachRestaurant} />
+              <RestaurantsItem data={eachRestaurant} key={eachRestaurant.id} />
             ))}
           </ul>
 
@@ -187,6 +187,7 @@ class Home extends Component {
               onClick={this.prevPage}
               className="pagination-icon-btn"
               type="button"
+              testid="pagination-left-button"
             >
               <AiOutlineCaretLeft className="pagination-icons" />
             </button>
@@ -196,6 +197,7 @@ class Home extends Component {
             </p>
 
             <button
+              testid="pagination-right-button"
               onClick={this.nextPage}
               className="pagination-icon-btn"
               type="button"

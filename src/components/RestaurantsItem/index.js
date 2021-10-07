@@ -15,10 +15,10 @@ class RestaurantsItem extends Component {
     console.log(ratingColor)
     return (
       <Link className="nav-link" to={`/restaurant/${id}`}>
-        <li className="item-card" key={id}>
+        <li testid="restaurant-item" className="item-card" key={id}>
           <img className="item-image" src={imageUrl} alt="" />
           <div className="item-info">
-            <p className="item-name">{name}</p>
+            <h1 className="item-name">{name}</h1>
             <p className="item-cuisine">{cuisine}</p>
             <div className="item-rating-container">
               <AiFillStar className="item-star" />

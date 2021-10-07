@@ -17,7 +17,6 @@ class Login extends Component {
       const {history} = this.props
       history.replace('/')
     }
-    return null
   }
 
   updateUsername = event => {
@@ -58,12 +57,12 @@ class Login extends Component {
         <div className="form-container">
           <div className="login-card">
             <div className="login-logo-container">
-              <img src={logo} alt="" />
+              <img src={logo} alt="website logo" />
               <h1 className="login-website-name">Tasty Kitchens</h1>
             </div>
 
             <form className="login-form" onSubmit={this.authUser}>
-              <p className="login-name">Login</p>
+              <h1 className="login-name">Login</h1>
               <label className="login-username-label" htmlFor="username">
                 USERNAME
               </label>
@@ -92,7 +91,11 @@ class Login extends Component {
           </div>
         </div>
         <div className="banner-container">
-          <img className="login-banner-image" src={bannerImage} alt="" />
+          <img
+            className="login-banner-image"
+            src={bannerImage}
+            alt="website login"
+          />
         </div>
       </div>
     )

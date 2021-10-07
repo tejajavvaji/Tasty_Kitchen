@@ -1,20 +1,27 @@
-import {AiFillFacebook} from 'react-icons/ai'
-import {FaPinterestSquare, FaInstagram, FaTwitter} from 'react-icons/fa'
+import {
+  FaPinterestSquare,
+  FaInstagram,
+  FaTwitter,
+  FaFacebookSquare,
+} from 'react-icons/fa'
 import './index.css'
 import logo from '../../Resources/Footer/websiteLogoFooter.svg'
 
 const Footer = () => (
   <footer className="footer">
     <div className="footer-logo-container">
-      <img src={logo} alt="" />
-      <p className="footer-website-name">Tasty Kitchens</p>
+      <img src={logo} alt="website-footer-logo" />
+      <h1 className="footer-website-name">Tasty Kitchens</h1>
     </div>
-    <p>The only thing we are serious about is food.</p>
+    <p>The only thing we are serious about is food. Contact us on</p>
     <div className="footer-icons-container">
-      <FaPinterestSquare className="footer-icon" />
-      <FaInstagram className="footer-icon" />
-      <FaTwitter className="footer-icon" />
-      <AiFillFacebook className="footer-icon" />
+      <FaPinterestSquare
+        className="footer-icon"
+        testid="pintrest-social-icon"
+      />
+      <FaInstagram className="footer-icon" testid="instagram-social-icon" />
+      <FaTwitter className="footer-icon" testid="twitter-social-icon" />
+      <FaFacebookSquare className="footer-icon" testid="facebook-social-icon" />
     </div>
   </footer>
 )

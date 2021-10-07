@@ -52,7 +52,6 @@ class EachRestaurant extends Component {
     const {restaurantDetails, eachFoodItem} = this.state
     let reviews = Math.floor(restaurantDetails.reviewsCount / 50)
     reviews *= 50
-    console.log(reviews)
     return (
       <>
         <Header />
@@ -62,7 +61,7 @@ class EachRestaurant extends Component {
               <img
                 className="restaurant_image"
                 src={restaurantDetails.imageUrl}
-                alt=""
+                alt="restaurant"
               />
             </div>
             <div className="each-image-back-right">
@@ -79,7 +78,7 @@ class EachRestaurant extends Component {
                 </div>
                 <div className="each-cost-container">
                   <p className="each-cost">₹ {restaurantDetails.costForTwo}</p>
-                  <p className="each-cost-title">Cost for Two</p>
+                  <p className="each-cost-title">Cost for two</p>
                 </div>
               </div>
             </div>
@@ -90,7 +89,7 @@ class EachRestaurant extends Component {
             {eachFoodItem.length !== 0 ? (
               <>
                 {eachFoodItem.map(eachFood => (
-                  <EachFoodItem data={eachFood} />
+                  <EachFoodItem data={eachFood} key={eachFood.id} />
                 ))}
               </>
             ) : null}

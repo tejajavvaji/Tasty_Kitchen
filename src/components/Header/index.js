@@ -16,7 +16,6 @@ class Header extends Component {
 
   checkPath = () => {
     const {match} = this.props
-    console.log(match)
     const {path} = match
     this.setState({activePage: path})
   }
@@ -58,7 +57,6 @@ class Header extends Component {
     let homeClass = ''
     let cartClass = ''
     const {activePage} = this.state
-    console.log(activePage)
     if (activePage === '/') {
       homeClass = 'header-home-link active'
     } else {
@@ -74,17 +72,21 @@ class Header extends Component {
         <nav className="header-navbar">
           <Link className="nav-link" to="/">
             <div className="header-logo-container">
-              <img src={logo} alt="" />
+              <img src={logo} alt="website logo" />
               <h1 className="header-website-name">Tasty Kitchens</h1>
             </div>
           </Link>
 
-          <div className="header-links-container">
+          <ul className="header-links-container">
             <Link className="nav-link" to="/">
-              <p className={homeClass}>Home</p>
+              <li>
+                <p className={homeClass}>Home</p>
+              </li>
             </Link>
             <Link className="nav-link" to="/cart">
-              <p className={cartClass}>Cart</p>
+              <li>
+                <p className={cartClass}>Cart</p>
+              </li>
             </Link>
             <Link className="nav-link profile" to="/profile">
               <RiUser3Line />
@@ -97,7 +99,7 @@ class Header extends Component {
             >
               Logout
             </button>
-          </div>
+          </ul>
         </nav>
       </div>
     )

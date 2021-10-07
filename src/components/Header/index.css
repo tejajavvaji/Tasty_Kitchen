@@ -12,6 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  list-style-type: none;
 }
 .header-logo-container {
   display: flex;
