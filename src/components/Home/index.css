@@ -3,11 +3,7 @@
   flex-direction: column;
   align-items: center;
 }
-.carousel-container {
-  width: 95vw;
-  max-width: var(--content-max-width);
-  margin-top: 30px;
-}
+
 .home-heading-container {
   width: 95vw;
   max-width: var(--content-max-width);

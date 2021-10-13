@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import {AiFillDelete} from 'react-icons/ai'
+import {Link} from 'react-router-dom'
 import CartContext from '../../Context/CartContext'
 import Header from '../Header/index'
 import Footer from '../Footer/index'
@@ -7,25 +8,23 @@ import EmptyCartImage from '../../Resources/Cart/EmptyCart.jpg'
 import './index.css'
 
 class Cart extends Component {
-  redirectToHome = () => {
-    const {history} = this.props
-    history.push('/')
-  }
+  //   redirectToHome = () => {
+  //     const {history} = this.props
+  //     history.push('/')
+  //   }
 
   renderEmptyCart = () => (
     <>
-      <img src={EmptyCartImage} alt="" />
+      <img src={EmptyCartImage} alt="empty cart" />
       <h1 className="empty-cart-heading">No Order Yet!</h1>
       <p className="empty-cart-para">
         Your cart is empty. Add something from the menu.
       </p>
-      <button
-        onClick={this.redirectToHome}
-        className="redirect-btn"
-        type="button"
-      >
-        Order Now
-      </button>
+      <Link to="/">
+        <button className="redirect-btn" type="button">
+          Order Now
+        </button>
+      </Link>
     </>
   )
 

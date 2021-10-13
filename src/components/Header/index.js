@@ -77,16 +77,12 @@ class Header extends Component {
             </div>
           </Link>
 
-          <ul className="header-links-container">
+          <div className="header-links-container">
             <Link className="nav-link" to="/">
-              <li>
-                <p className={homeClass}>Home</p>
-              </li>
+              <p className={homeClass}>Home</p>
             </Link>
             <Link className="nav-link" to="/cart">
-              <li>
-                <p className={cartClass}>Cart</p>
-              </li>
+              <p className={cartClass}>Cart</p>
             </Link>
             <Link className="nav-link profile" to="/profile">
               <RiUser3Line />
@@ -99,7 +95,7 @@ class Header extends Component {
             >
               Logout
             </button>
-          </ul>
+          </div>
         </nav>
       </div>
     )

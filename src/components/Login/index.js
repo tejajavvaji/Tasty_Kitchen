@@ -42,7 +42,7 @@ class Login extends Component {
     console.log(data)
     if (response.ok) {
       const token = data.jwt_token
-      Cookies.set('jwt_token', token, {expires: 1})
+      Cookies.set('jwt_token', token, {expires: 30})
       const {history} = this.props
       history.replace('/')
     } else {
