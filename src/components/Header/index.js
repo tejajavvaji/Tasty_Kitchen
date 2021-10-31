@@ -7,11 +7,19 @@ import logo from '../../Resources/Login/login logo.svg'
 import './index.css'
 
 class Header extends Component {
-  state = {activePage: 'HOME', userName: ''}
+  state = {activePage: 'HOME', userName: '', count: 0}
 
   componentDidMount() {
     this.checkPath()
     this.getUserData()
+    this.getCount()
+  }
+
+  getCount = () => {
+    const localData = JSON.parse(localStorage.getItem('CartData'))
+    if (localData !== null) {
+      this.setState({count: localData.length})
+    }
   }
 
   checkPath = () => {
@@ -51,7 +59,7 @@ class Header extends Component {
   }
 
   render() {
-    const {userName} = this.state
+    const {userName, count} = this.state
     const fullName = userName.split(' ')
     const firstName = fullName[0]
     let homeClass = ''
@@ -67,6 +75,7 @@ class Header extends Component {
     } else {
       cartClass = 'header-home-link'
     }
+
     return (
       <div className="header-main">
         <nav className="header-navbar">
@@ -81,8 +90,13 @@ class Header extends Component {
             <Link className="nav-link" to="/">
               <p className={homeClass}>Home</p>
             </Link>
-            <Link className="nav-link" to="/cart">
+            <Link className="nav-link cart-count-link" to="/cart">
               <p className={cartClass}>Cart</p>
+              <ul className="cart-count-list">
+                <li className="cart-count-list-item">
+                  <p className="cart-count">{count}</p>
+                </li>
+              </ul>
             </Link>
             <Link className="nav-link profile" to="/profile">
               <RiUser3Line />

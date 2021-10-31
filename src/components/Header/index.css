@@ -43,6 +43,23 @@
 .nav-link {
   text-decoration: none;
 }
+.cart-count-link {
+  display: flex;
+  align-items: center;
+}
+.cart-count-list {
+  list-style-type: none;
+  padding: 0;
+}
+.cart-count-list-item {
+  background-color: var(--website-clr);
+  color: #ffffff;
+  margin-left: 5px;
+  padding: 0 6px;
+  border-radius: 30%;
+  font-weight: bold;
+}
+
 .profile {
   display: flex;
   justify-content: center;

@@ -16,18 +16,12 @@ const Footer = () => (
     <p>The only thing we are serious about is food. Contact us on</p>
     <div className="footer-icons-container">
       <FaPinterestSquare
+        testid="pintrest-social-icon"
         className="footer-icon"
-        data-testid="pintrest-social-icon"
       />
-      <FaInstagram
-        className="footer-icon"
-        data-testid="instagram-social-icon"
-      />
-      <FaTwitter className="footer-icon" data-testid="twitter-social-icon" />
-      <FaFacebookSquare
-        className="footer-icon"
-        data-testid="facebook-social-icon"
-      />
+      <FaInstagram testid="instagram-social-icon" className="footer-icon" />
+      <FaTwitter testid="twitter-social-icon" className="footer-icon" />
+      <FaFacebookSquare testid="facebook-social-icon" className="footer-icon" />
     </div>
   </footer>
 )

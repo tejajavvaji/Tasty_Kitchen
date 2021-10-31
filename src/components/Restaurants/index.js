@@ -147,7 +147,7 @@ export default class Restaurants extends Component {
             onClick={this.prevPage}
             className="pagination-icon-btn"
             type="button"
-            data-testid="pagination-left-button"
+            testid="pagination-left-button"
           >
             <AiOutlineCaretLeft className="pagination-icons" />
           </button>
@@ -157,7 +157,7 @@ export default class Restaurants extends Component {
           </p>
 
           <button
-            data-testid="pagination-right-button"
+            testid="pagination-right-button"
             onClick={this.nextPage}
             className="pagination-icon-btn"
             type="button"
@@ -170,10 +170,7 @@ export default class Restaurants extends Component {
   }
 
   renderLoader = () => (
-    <div
-      data-testid="restaurants-list-loader"
-      className="carousel-loader-container"
-    >
+    <div testid="restaurants-list-loader" className="carousel-loader-container">
       <Loader type="TailSpin" color="#f7931e" height="50" width="50" />
     </div>
   )

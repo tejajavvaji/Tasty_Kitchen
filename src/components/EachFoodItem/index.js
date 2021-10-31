@@ -8,36 +8,64 @@ import './index.css'
 class EachFoodItem extends Component {
   state = {showCounter: false, quantity: 0}
 
-  //   componentDidMount() {
-  //     console.log('Mount')
-  //     this.checkCartData()
-  //   }
+  componentDidMount() {
+    this.checkLocalStorage()
+  }
+
+  checkLocalStorage = () => {
+    console.log('Local Storage Check')
+    const localData = JSON.parse(localStorage.getItem('CartData'))
+    if (localData !== null) {
+      const {data} = this.props
+      const {id} = data
+      localData.map(eachItem => {
+        if (eachItem.id === id) {
+          this.setState({quantity: eachItem.quantity, showCounter: true})
+          console.log('Loop In')
+        }
+        return null
+      })
+    }
+  }
 
   onIncrement = sendIncrement => {
     // sendIncrement()
     const {quantity} = this.state
     // this.setState(prevState => ({quantity: prevState.quantity + 1}))
-    this.setState({quantity: quantity + 1}, this.quantityIncreaseLocalStorage)
+    this.setState({quantity: quantity + 1}, this.quantityUpdateLocalStorage)
   }
 
-  quantityIncreaseLocalStorage = () => {
+  quantityUpdateLocalStorage = () => {
     const localData = JSON.parse(localStorage.getItem('CartData'))
     const {data} = this.props
     const updatedData = localData.map(eachItem => {
       if (eachItem.id === data.id) {
+        const {quantity} = this.state
         return {
           cost: eachItem.cost,
           food_type: eachItem.food_type,
           id: eachItem.id,
           image_url: eachItem.image_url,
           name: eachItem.name,
-          quantity: eachItem.quantity,
+          quantity,
           rating: eachItem.rating,
         }
       }
       return eachItem
     })
     localStorage.setItem('CartData', JSON.stringify(updatedData))
+  }
+
+  deleteItemLocalStorage = () => {
+    const {data} = this.props
+    const {id} = data
+    const localData = JSON.parse(localStorage.getItem('CartData'))
+    const updatedData = localData.filter(eachItem => eachItem.id !== id)
+    if (updatedData.length === 0) {
+      localStorage.removeItem('CartData')
+    } else {
+      localStorage.setItem('CartData', JSON.stringify(updatedData))
+    }
   }
 
   addItemToLocalStorage = () => {
@@ -55,13 +83,16 @@ class EachFoodItem extends Component {
   }
 
   onDecrement = (sendDecrement, sendDelete) => {
-    sendDecrement()
+    // sendDecrement()
     const {quantity} = this.state
-    if (quantity > 1) {
-      this.setState({quantity: quantity - 1})
+    if (quantity === 1) {
+      this.setState(
+        {showCounter: false, quantity: 0},
+        this.deleteItemLocalStorage,
+      )
     } else {
-      sendDelete()
-      this.setState({showCounter: false})
+      //   sendDelete()
+      this.setState({quantity: quantity - 1}, this.quantityUpdateLocalStorage)
     }
   }
 
